@@ -46,7 +46,7 @@ const ShowContact = ({ contactList }) => {
                 return value.includes(search.toLowerCase());
             })
         });
-        console.log(searchResult, "serch result")
+
         if (searchResult.length) {
             return setContactShow(searchResult);
         }
