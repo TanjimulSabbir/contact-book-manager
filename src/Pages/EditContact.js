@@ -45,8 +45,11 @@ const EditContact = ({ setEdit, editInfo }) => {
         if (!render) {
             return;
         }
-        let getLocalItems = localStorage.getItem("contact");
-        getLocalItems = JSON.parse(getLocalItems);
+        let getLocalItems = JSON.parse(localStorage.getItem("contact"));
+
+        if (!getLocalItems) {
+            return;
+        }
 
         const index = getLocalItems.findIndex(userInfo => userInfo.contact === editInfo.contact);
 

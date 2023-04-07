@@ -21,10 +21,13 @@ const ShowContact = ({ contactList }) => {
     // Delete contact
     useEffect(() => {
         const getLocalItems = JSON.parse(localStorage.getItem("contact"))
+        if (!getLocalItems) {
+            return;
+        }
         const index = getLocalItems?.findIndex(userInfo => userInfo.contact === deleteContact);
         // Removing the object from the array
         if (index !== -1) {
-            getLocalItems.splice(index, 1);
+            getLocalItems?.splice(index, 1);
         }
         // Store the updated array in local storage
         localStorage.setItem('contact', JSON.stringify(getLocalItems));
@@ -34,7 +37,10 @@ const ShowContact = ({ contactList }) => {
     // Searching
     useEffect(() => {
         const getLocalItems = JSON.parse(localStorage.getItem("contact"));
-        const searchResult = getLocalItems.filter(item => {
+        if (!getLocalItems) {
+            return;
+        }
+        const searchResult = getLocalItems?.filter(item => {
             return Object.keys(item).some(key => {
                 const value = item[key].toString().toLowerCase();
                 return value.includes(search.toLowerCase());
