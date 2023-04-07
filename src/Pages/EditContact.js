@@ -53,8 +53,6 @@ const EditContact = ({ setEdit, editInfo }) => {
         if (index !== -1) {
             getLocalItems[index].contact = contactList.contact;
             getLocalItems[index].name = contactList.name;
-            console.log(getLocalItems[index].contact, "find index")
-            console.log(getLocalItems, "After changing")
             localStorage.setItem("contact", JSON.stringify(getLocalItems));
             toast.success("Contact Updated Successfully")
             setContactList({})

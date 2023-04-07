@@ -31,9 +31,6 @@ const ShowContact = ({ contactList }) => {
         setDeleteContact("")
     }, [deleteContact])
 
-    const getLocalItems = JSON.parse(localStorage.getItem("contact"));
-    console.log(getLocalItems, "getLocalItems")
-
     // Searching
     useEffect(() => {
         const getLocalItems = JSON.parse(localStorage.getItem("contact"));
@@ -72,7 +69,7 @@ const ShowContact = ({ contactList }) => {
                 {
                     ShowContact && ContactShow.map(userList => {
                         return (
-                            <div key={userList.contact} className="relative flex items-center border p-2 space-x-4 rounded-lg">
+                            <div key={userList.contact} className="relative flex items-center border p-2 space-x-4 rounded-lg shadow-lg">
                                 <div className="text-4xl">
                                     <HiUserCircle />
                                 </div>

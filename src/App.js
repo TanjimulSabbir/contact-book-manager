@@ -8,16 +8,16 @@ function App() {
     <div>
       <AddContact></AddContact>
       <ToastContainer
-        position="top-center"
+        position="top-left"
         autoClose={5000}
         hideProgressBar
-        newestOnTop
+        newestOnTop={false}
         closeOnClick
         rtl={false}
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="colored"
+        theme="light"
       />
     </div>
   );
