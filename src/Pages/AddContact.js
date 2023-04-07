@@ -22,6 +22,7 @@ const AddContact = () => {
 
         if (!getLocalItems) {
             localStorage.setItem("contact", JSON.stringify([UserObject]));
+            setContactList({})
             toast.success("Contact Added Successfully")
         }
 
@@ -35,20 +36,24 @@ const AddContact = () => {
 
         if (!AlreadyAdded) {
             localStorage.setItem("contact", JSON.stringify([...getLocalItems, UserObject]));
+            setContactList({})
             toast.success("Contact Added Successfully")
         }
         if (AlreadyAdded) {
+            setContactList({})
             toast.error("Contact Info Already Used")
         }
     }, [contactList])
 
     return (
-        <div className="min-h-screen mt-4">
-            <h1 className="text-3xl text-center font-bold">Address Book Manager</h1>
+        <div className="min-h-screen mt-6">
+            <h1 className="text-3xl text-center font-extrabold">Address Book Manager</h1>
 
-            <div className="flex flex-col  md:flex-row justify-center">
+            <div className="flex flex-col items-center md:items-start md:flex-row justify-center">
                 <form onSubmit={handleSubmit(onSubmit)} className="mt-20">
+
                     <div className="border shadow p-5 rounded-lg">
+                        <h1 className="text-xl text-center font-bold bg-opacity-1 mb-2">Add Contact</h1>
                         <div>
                             <div><label>Name</label></div>
                             <input {...register("name", { required: "Name is required", pattern: { value: /^[a-zA-Z][a-zA-Z0-9\s\-]{2,}$/, message: "Name should have at least 3 character" } })} type='text' className="input h-8 input-bordered w-full max-w-xs" name="name" placeholder="Name" />

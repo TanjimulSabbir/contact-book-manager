@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { HiUserCircle } from "react-icons/hi";
 import { BiMessageAltEdit } from "react-icons/bi";
 import { MdDeleteForever } from "react-icons/md";
-import { toast } from 'react-toastify';
 import EditContact from './EditContact';
+import { FiSearch } from "react-icons/fi";
 
 
 const ShowContact = ({ contactList }) => {
@@ -12,9 +12,6 @@ const ShowContact = ({ contactList }) => {
     const [editInfo, setEditInfo] = useState("");
     const [search, setSearch] = useState("");
     const [ContactShow, setContactShow] = useState([]);
-
-
-    console.log(contactList, "contactList")
 
     // Delete Function
     const handleDelete = (contactInfo) => {
@@ -68,7 +65,9 @@ const ShowContact = ({ contactList }) => {
 
     return (
         <div className="pb-14 md:ml-10 w-[400px]">
+
             <input onChange={(e) => setSearch(e.target.value)} type="search" className="mt-20 input h-10 input-bordered w-full max-w-[400px] mb-8" placeholder="Search Contact" />
+
             <div className="space-y-4">
                 {
                     ShowContact && ContactShow.map(userList => {
@@ -80,12 +79,14 @@ const ShowContact = ({ contactList }) => {
                                 <div>
                                     <p className='text-black'>{userList.name}</p>
                                     <p className="text-black">{userList.contact}</p>
-                                    <p className="text-green-600">{userList.address}</p>
+                                    <p className="text-green-600 mt-1">{userList.address}</p>
                                 </div>
-                                <div className="absolute right-2 flex items-center space-x-2">
-                                    <p onClick={() => handleEdit({ contact: userList.contact, name: userList.name })} className="text-2xl cursor-pointer"><BiMessageAltEdit /></p>
 
-                                    <p onClick={() => handleDelete(userList.contact)} className="text-2xl cursor-pointer"><MdDeleteForever /></p>
+                                <div className="absolute right-2 flex items-center space-x-2">
+                                    <p onClick={() => handleEdit({ contact: userList.contact, name: userList.name })} className="text-2xl text-green-600 cursor-pointer mt-1">
+                                        <BiMessageAltEdit /></p>
+
+                                    <p onClick={() => handleDelete(userList.contact)} className="text-2xl cursor-pointer text-red-600"><MdDeleteForever /></p>
                                 </div>
                             </div>
                         )

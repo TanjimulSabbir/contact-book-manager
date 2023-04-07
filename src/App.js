@@ -7,7 +7,18 @@ function App() {
   return (
     <div>
       <AddContact></AddContact>
-      <ToastContainer></ToastContainer>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 }

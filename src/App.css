@@ -4,14 +4,15 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
-p,
 label,
 span,
 small {
-  font-family: 'Bitter', serif;
+  font-family: 'Laila', sans-serif;
+}
 
+p {
+  font-family: 'Noto Sans', sans-serif;
 }
