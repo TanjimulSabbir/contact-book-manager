@@ -3,7 +3,7 @@ import { HiUserCircle } from "react-icons/hi";
 import { BiMessageAltEdit } from "react-icons/bi";
 import { MdDeleteForever } from "react-icons/md";
 import EditContact from './EditContact';
-import { FiSearch } from "react-icons/fi";
+import { TbMoodSad } from "react-icons/tb";
 
 
 const ShowContact = ({ contactList }) => {
@@ -55,8 +55,9 @@ const ShowContact = ({ contactList }) => {
 
     // If No contact Found
     if (!ContactShow?.length) {
-        return <div className="mt-20 md:ml-10">
-            <p className="font-bold card-body">No Contact Found</p>
+        return <div className="flex items-center space-x-1 text-black mt-20 md:ml-10 rounded-lg bg-green-300 p-6">
+            <p className="font-bold ">No Contact Found</p>
+            <TbMoodSad />
         </div>
     }
 
@@ -64,7 +65,6 @@ const ShowContact = ({ contactList }) => {
         <div className="pb-14 md:ml-10 w-[400px]">
 
             <input onChange={(e) => setSearch(e.target.value)} type="search" className="mt-20 input h-10 input-bordered w-full max-w-[400px] mb-8" placeholder="Search Contact" />
-
             <div className="space-y-4">
                 {
                     ShowContact && ContactShow.map(userList => {
