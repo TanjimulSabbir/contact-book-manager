@@ -80,7 +80,7 @@ const EditContact = ({ setEdit, editInfo }) => {
 
                         <div className="mt-4">
                             <div><label>Contact</label></div>
-                            <input {...register("contact", { required: "Contact is required", pattern: { value: /^(\+)?\d{6,12}$/, message: "Please enter a valid phone number between 6 and 12 digits" }, value: `${editInfo.contact}` })} type='tel' className="input h-8  input-bordered w-full max-w-xs" name="contact" placeholder="Contact" />
+                            <input {...register("contact", { required: "Contact is required", pattern: { value: /^(\+)?\d{6,15}$/, message: "Please enter a valid phone number between 6 and 15 digits" }, value: `${editInfo.contact}` })} type='tel' className="input h-8  input-bordered w-full max-w-xs" name="contact" placeholder="Contact" />
 
                         </div>
                         <small className="text-red-700 text-[10px]">{errors?.contact?.message}</small>
