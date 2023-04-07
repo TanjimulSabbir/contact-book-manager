@@ -45,7 +45,7 @@ const ShowContact = ({ contactList }) => {
                 const value = item[key].toString().toLowerCase();
                 return value.includes(search.toLowerCase());
             })
-        });
+        }).sort((a, b) => a.name.localeCompare(b.name));
 
         if (searchResult.length) {
             return setContactShow(searchResult);

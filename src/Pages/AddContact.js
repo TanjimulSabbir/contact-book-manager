@@ -65,10 +65,10 @@ const AddContact = () => {
 
                         <div className="mt-4">
                             <div><label>Contact</label></div>
-                            <input {...register("contact", { required: "Contact is required", pattern: { value: /^[1-9]\d*$/, message: "Contact number must have number value" } })} type='tel' className="input h-8 input-bordered w-full max-w-xs" name="contact" placeholder="Contact" />
+                            <input {...register("contact", { required: "Contact is required", pattern: { value: /^(\+)?\d{6,12}$/, message: "Please enter a valid phone number between 6 & 12 digits" } })} type='tel' className="input h-8 input-bordered w-full max-w-xs" name="contact" placeholder="Contact" />
 
                         </div>
-                        <small className="text-red-700">{errors?.contact?.message}</small>
+                        <small className="text-red-700 text-[10px]">{errors?.contact?.message}</small>
                         <div className="mt-4">
                             <div><label>Address</label></div>
                             <input {...register("address", { required: "Address is required", pattern: { value: /^[^\d][\w\s.,!?@#$%^&*()-]+$/i, message: "Address must have 4 character" } })} type="text" className="input h-8 input-bordered w-full max-w-xs" name="address" placeholder="Address" />
